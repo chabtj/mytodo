@@ -11,17 +11,19 @@ from .models import taskbar
 		model=taskbar
 		fields=['tasktype','description','completed']
 		def clean_description(self , *args,**kwargs):
-		description=self.cleaned_data.get("description") 
+		description=self.cleaned_data.get("description")
 		if "padhai" in description:
 			return description
 		else :
 			raise forms.ValidationError("padhai karo")'''
 
 class getdata_(ModelForm):
-	
+	task_choices=(('recreation','recreation'),('academic','academic'),)
+	tasktype=forms.CharField(max_length=100)
+	description=forms.CharField(max_length=100)
+	completed=forms.BooleanField()
+
 
 	class Meta:
 		model=taskbar
 		fields =['tasktype','description','completed']
-
-

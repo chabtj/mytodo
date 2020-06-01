@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tasklist.views import generateformview,individualview,my_view
+from tasklist.views import generateformview,my_view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('yourday/', generateformview, name='home'),
     path('yourday/<int:id>',my_view, name='task'),
-    
+
 ]
