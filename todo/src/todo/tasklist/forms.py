@@ -19,9 +19,9 @@ from .models import taskbar
 
 class getdata_(ModelForm):
 	task_choices=(('recreation','recreation'),('academic','academic'),)
-	tasktype=forms.CharField(max_length=100)
+	tasktype=forms.ChoiceField(choices=task_choices)
 	description=forms.CharField(max_length=100)
-	completed=forms.BooleanField()
+	completed=forms.BooleanField(required=False)
 
 
 	class Meta:

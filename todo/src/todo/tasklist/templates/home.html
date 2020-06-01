@@ -9,7 +9,7 @@
 
 {{form.tasktype}}
 {{form.description}}
-{{form.completed}}
+
 
 
 <input type="submit" value="SUBMIT" >
@@ -18,10 +18,16 @@
 <ol>
 {% for i in alltasks %}
 {% if i.completed %}
-<li><div class="itemcomp"><b>{{i.tasktype}}</b> {{i.description}}  </div></li>
+<li><div class="itemcomp"><b>{{i.tasktype}}</b> {{i.description}}   </div>
 {%else%}
-<li><div class="itemncomp"><b>{{i.tasktype}}</b> {{i.description}}</div></li> 
+<li><div class="itemncomp"><b>{{i.tasktype}}</b> {{i.description}}</div>
+</li> 
 {%endif%}
+<a href = {% url "task" i.id %}>Update</a>
+<a href = {% url "del"  i.id %}>delete</a>
+
+<br>
+
 {%endfor%}
 </ol>
 <style type="">
@@ -40,6 +46,17 @@
 		border-radius:7px;
 		margin:5px;
 		padding:4px;
+	}
+	a
+	{
+		background:white;
+		border:2px solid black ;
+		border-radius: 3px;
+		color:blue;
+		text-decoration: none;
+		padding:3px;
+		margin:3px;
+
 	}
 </style>
 </body>

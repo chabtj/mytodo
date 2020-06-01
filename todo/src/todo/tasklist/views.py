@@ -27,5 +27,10 @@ def my_view(request, id):
 		if form.is_valid():
 			form.save()
 			form = getdata_(instance=meow)
-			return redirect('home')
-	return render(request, '../templates/individual.html', {'form': form})
+			return redirect('yourday')
+	return render(request, '../templates/individual.html', {'form': form,'id':id})
+
+def del_view(request, id ):
+	x=taskbar.objects.get(id=id)
+	x.delete()
+	return redirect('yourday')
