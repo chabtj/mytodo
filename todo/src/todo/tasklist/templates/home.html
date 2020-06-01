@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>your day</title>
+</head>
+<body>
+	<form method="POST" action="">{% csrf_token %}
+	
+
+{{form.tasktype}}
+{{form.description}}
+{{form.completed}}
+
+
+<input type="submit" value="SUBMIT" >
+
+</form>
+<ol>
+{% for i in alltasks %}
+{% if i.completed %}
+<li><div class="itemcomp"><b>{{i.tasktype}}</b> {{i.description}}  </div></li>
+{%else%}
+<li><div class="itemncomp"><b>{{i.tasktype}}</b> {{i.description}}</div></li> 
+{%endif%}
+{%endfor%}
+</ol>
+<style type="">
+	.itemcomp
+	{	
+		color:green;
+
+	}
+	.itemncomp
+	{	
+		color:red;
+	}
+	div{
+		background-color: grey;
+		border:3px solid black;
+		border-radius:7px;
+		margin:5px;
+		padding:4px;
+	}
+</style>
+</body>
+</html>
